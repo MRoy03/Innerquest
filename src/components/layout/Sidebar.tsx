@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
-  LayoutDashboard,
   Brain,
   Swords,
   Apple,
@@ -12,6 +11,8 @@ import {
   Settings,
   LogOut,
   Zap,
+  Dumbbell,
+  Heart,
 } from "lucide-react";
 import { useUserStore } from "@/lib/store/userStore";
 import { XpBar } from "@/components/ui/XpBar";
@@ -19,11 +20,12 @@ import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 
 const navItems = [
-  { href: "/quests", label: "Quest Board", icon: Swords },
-  { href: "/brain", label: "Brain Training", icon: Brain },
-  { href: "/nutrition", label: "Nutrition", icon: Apple },
-  { href: "/insights", label: "Insights", icon: BarChart3 },
-  { href: "/settings", label: "Settings", icon: Settings },
+  { href: "/quests",   label: "Quest Board",    icon: Swords },
+  { href: "/brain",    label: "Brain Training", icon: Brain },
+  { href: "/fitness",  label: "Fitness",        icon: Dumbbell },
+  { href: "/nutrition",label: "Nutrition",      icon: Apple },
+  { href: "/insights", label: "Insights",       icon: BarChart3 },
+  { href: "/settings", label: "Settings",       icon: Settings },
 ];
 
 export function Sidebar() {
