@@ -1,16 +1,17 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 
+// Handles email confirmation links sent after sign-up
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
   const token_hash = searchParams.get("token_hash");
   const type = searchParams.get("type");
-  const next = searchParams.get("next") ?? "/quests";
+  const next = searchParams.get("next") ?? "/onboarding";
 
   const supabase = await createClient();
 
-  // PKCE flow — code exchange (used by @supabase/ssr default)
+  // PKCE code exchange (default @supabase/ssr flow)
   if (code) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
@@ -18,14 +19,16 @@ export async function GET(request: Request) {
     }
   }
 
-  // OTP / token_hash flow (older Supabase email format)
+  // token_hash flow (email confirmation links)
   if (token_hash && type) {
-    const { error } = await supabase.auth.verifyOtp({ token_hash, type: type as "email" | "magiclink" | "recovery" | "invite" });
+    const { error } = await supabase.auth.verifyOtp({
+      token_hash,
+      type: type as "email" | "signup" | "recovery" | "invite",
+    });
     if (!error) {
       return NextResponse.redirect(`${origin}${next}`);
     }
   }
 
-  // Both failed — send back to login with visible error
   return NextResponse.redirect(`${origin}/login?error=link_expired`);
 }

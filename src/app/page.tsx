@@ -82,7 +82,7 @@ export default function LandingPage() {
           <Link href="/login">
             <Button variant="ghost" size="sm">Sign In</Button>
           </Link>
-          <Link href="/onboarding">
+          <Link href="/login?tab=signup">
             <Button variant="primary" size="sm">Get Started</Button>
           </Link>
         </div>
@@ -104,7 +104,7 @@ export default function LandingPage() {
           Complete daily quests, earn XP, and become the best version of yourself.
         </p>
         <div className="flex items-center justify-center gap-4 flex-wrap">
-          <Link href="/onboarding">
+          <Link href="/login?tab=signup">
             <Button variant="primary" size="lg">
               <Swords className="w-5 h-5" /> Begin Your Quest
             </Button>
@@ -153,7 +153,7 @@ export default function LandingPage() {
         <p className="text-text-muted mb-8 max-w-md mx-auto">
           Join thousands of heroes on a journey to a better mind, body, and life.
         </p>
-        <Link href="/onboarding">
+        <Link href="/login?tab=signup">
           <Button variant="primary" size="lg">
             <Zap className="w-5 h-5" /> Start for Free
           </Button>
