@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Brain, Swords, Apple, BarChart3, Settings, LogOut, Zap, Dumbbell } from "lucide-react";
+import { Brain, Swords, Apple, BarChart3, Settings, LogOut, Zap, Dumbbell, Scale } from "lucide-react";
 import { useUserStore } from "@/lib/store/userStore";
 import { XpBar } from "@/components/ui/XpBar";
 import { createClient } from "@/lib/supabase/client";
@@ -13,6 +13,7 @@ const navItems = [
   { href: "/quests",   label: "Quest Board",    icon: Swords },
   { href: "/brain",    label: "Brain Training", icon: Brain },
   { href: "/fitness",  label: "Fitness",        icon: Dumbbell },
+  { href: "/bmi",      label: "BMI Calculator", icon: Scale },
   { href: "/nutrition",label: "Nutrition",      icon: Apple },
   { href: "/insights", label: "Insights",       icon: BarChart3 },
   { href: "/settings", label: "Settings",       icon: Settings },

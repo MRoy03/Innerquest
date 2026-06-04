@@ -2,16 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Swords, Brain, Dumbbell, Apple, BarChart3, Settings } from "lucide-react";
+import { Swords, Brain, Dumbbell, Apple, Scale, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Show most important 6 items; Settings accessible via Insights → sidebar on desktop
 const NAV = [
-  { href: "/quests",    label: "Quests",   icon: Swords },
-  { href: "/brain",     label: "Brain",    icon: Brain },
-  { href: "/fitness",   label: "Fitness",  icon: Dumbbell },
-  { href: "/nutrition", label: "Nutrition",icon: Apple },
-  { href: "/insights",  label: "Insights", icon: BarChart3 },
-  { href: "/settings",  label: "Settings", icon: Settings },
+  { href: "/quests",    label: "Quests",  icon: Swords },
+  { href: "/brain",     label: "Brain",   icon: Brain },
+  { href: "/fitness",   label: "Fitness", icon: Dumbbell },
+  { href: "/bmi",       label: "BMI",     icon: Scale },
+  { href: "/nutrition", label: "Food",    icon: Apple },
+  { href: "/insights",  label: "Insights",icon: BarChart3 },
 ];
 
 export function MobileNav() {
@@ -27,17 +28,15 @@ export function MobileNav() {
               key={href}
               href={href}
               className={cn(
-                "flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl transition-all min-w-0 flex-1",
+                "flex flex-col items-center gap-0.5 px-1.5 py-1.5 rounded-xl transition-all min-w-0 flex-1",
                 active ? "text-primary" : "text-text-subtle"
               )}
             >
               <Icon className={cn("w-5 h-5 shrink-0", active && "drop-shadow-[0_0_6px_rgba(78,205,196,0.8)]")} />
-              <span className={cn("text-[10px] font-medium leading-none truncate", active ? "text-primary" : "text-text-subtle")}>
+              <span className={cn("text-[9px] font-medium leading-none truncate", active ? "text-primary" : "text-text-subtle")}>
                 {label}
               </span>
-              {active && (
-                <span className="w-1 h-1 rounded-full bg-primary mt-0.5" />
-              )}
+              {active && <span className="w-1 h-1 rounded-full bg-primary mt-0.5" />}
             </Link>
           );
         })}
