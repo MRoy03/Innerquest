@@ -3,17 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import {
-  Brain,
-  Swords,
-  Apple,
-  BarChart3,
-  Settings,
-  LogOut,
-  Zap,
-  Dumbbell,
-  Heart,
-} from "lucide-react";
+import { Brain, Swords, Apple, BarChart3, Settings, LogOut, Zap, Dumbbell } from "lucide-react";
 import { useUserStore } from "@/lib/store/userStore";
 import { XpBar } from "@/components/ui/XpBar";
 import { createClient } from "@/lib/supabase/client";
@@ -40,7 +30,7 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="w-64 h-screen fixed left-0 top-0 flex flex-col bg-bg-card border-r border-border z-40">
+    <aside className="hidden lg:flex w-64 h-screen fixed left-0 top-0 flex-col bg-bg-card border-r border-border z-40">
       {/* Logo */}
       <div className="px-5 py-5 border-b border-border">
         <Link href="/quests" className="flex items-center gap-2.5">
@@ -57,16 +47,14 @@ export function Sidebar() {
       {stats && (
         <div className="px-5 py-4 border-b border-border">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-9 h-9 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-bold text-sm">
+            <div className="w-9 h-9 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-bold text-sm shrink-0">
               {profile?.username?.[0]?.toUpperCase() ?? "?"}
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-text truncate">
                 {profile?.username ?? "Hero"}
               </p>
-              <p className="text-xs text-text-muted">
-                {stats.streakDays} day streak 🔥
-              </p>
+              <p className="text-xs text-text-muted">{stats.streakDays} day streak 🔥</p>
             </div>
           </div>
           <XpBar xp={stats.xp} level={stats.level} compact />

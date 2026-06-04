@@ -126,7 +126,7 @@ export function InsightsDashboard() {
       </div>
 
       {/* Stat cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         <Card>
           <div className="flex items-center gap-2 mb-2"><Heart className="w-4 h-4 text-[#BC8CFF]" /><span className="text-xs text-text-muted">Wellness</span></div>
           <p className="text-2xl font-display font-bold text-text mb-2">{wellnessScore}<span className="text-sm text-text-muted">/100</span></p>
@@ -194,7 +194,7 @@ export function InsightsDashboard() {
       </Card>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card>
           <div className="mb-4">
             <CardTitle>Mood (7-day)</CardTitle>

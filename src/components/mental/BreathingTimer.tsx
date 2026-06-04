@@ -152,8 +152,8 @@ export function BreathingTimer({ onComplete }: Props) {
     );
   }
 
-  // Running
-  const circleSize = 160;
+  // Running — smaller circle on mobile (rendered via CSS clamp-like logic)
+  const circleSize = 140;
   const progress = currentPhase ? ((currentPhase.secs - timeLeft) / currentPhase.secs) * 100 : 0;
   const phaseColorClass = currentPhase?.color ?? "bg-primary";
 

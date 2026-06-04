@@ -57,8 +57,8 @@ function ActivityModal({
   const category = q.category;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-      <div className="w-full max-w-lg bg-bg-card border border-border rounded-2xl shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 bg-black/70 backdrop-blur-sm">
+      <div className="w-full sm:max-w-lg bg-bg-card border border-border sm:rounded-2xl shadow-2xl overflow-hidden rounded-t-2xl">
         {/* Modal header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-border">
           <div>
@@ -76,7 +76,7 @@ function ActivityModal({
         </div>
 
         {/* Modal body */}
-        <div className="p-5 max-h-[75vh] overflow-y-auto">
+        <div className="p-4 sm:p-5 max-h-[80vh] overflow-y-auto">
           {category === "mental" && (
             <BreathingTimer
               onComplete={(xp) => {
@@ -200,20 +200,20 @@ export function QuestBoard() {
       )}
 
       <div className="space-y-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-start sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-2xl font-display font-bold text-text flex items-center gap-2">
-              <Swords className="w-6 h-6 text-primary" />
+            <h1 className="text-xl sm:text-2xl font-display font-bold text-text flex items-center gap-2">
+              <Swords className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               Quest Board
             </h1>
-            <p className="text-text-muted text-sm mt-1">
-              Tap a quest to start the activity · Level {stats?.level ?? 1}
+            <p className="text-text-muted text-xs sm:text-sm mt-1">
+              Tap Start to begin · Level {stats?.level ?? 1}
             </p>
           </div>
-          <div className="flex items-center gap-2 bg-bg-card border border-border rounded-xl px-4 py-2">
-            <Zap className="w-4 h-4 text-gold" />
-            <span className="text-sm font-semibold text-gold">
-              {completedToday}/{quests.length} today
+          <div className="flex items-center gap-2 bg-bg-card border border-border rounded-xl px-3 py-1.5 shrink-0">
+            <Zap className="w-3.5 h-3.5 text-gold" />
+            <span className="text-xs sm:text-sm font-semibold text-gold">
+              {completedToday}/{quests.length}
             </span>
           </div>
         </div>

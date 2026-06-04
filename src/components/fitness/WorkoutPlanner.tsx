@@ -95,7 +95,7 @@ export function WorkoutPlanner({ onQuestComplete }: { onQuestComplete?: (cal: nu
         </div>
 
         {/* Exercise preview */}
-        <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
+        <div className="space-y-2 max-h-40 sm:max-h-48 overflow-y-auto pr-1">
           {plan.exercises.map((ex, i) => (
             <div key={i} className="flex items-center justify-between p-3 bg-bg-elevated rounded-xl border border-border">
               <div className="flex items-center gap-2.5">

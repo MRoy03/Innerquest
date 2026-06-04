@@ -110,13 +110,13 @@ export function NutritionHub({ onQuestComplete }: { onQuestComplete?: () => void
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
+      <div className="flex items-start sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-display font-bold text-text flex items-center gap-2">
-            <Apple className="w-6 h-6 text-primary" />
+          <h1 className="text-xl sm:text-2xl font-display font-bold text-text flex items-center gap-2">
+            <Apple className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             Nutrition Hub
           </h1>
-          <p className="text-text-muted text-sm mt-1">
+          <p className="text-text-muted text-xs sm:text-sm mt-1">
             {profile?.username ?? "Hero"} — track today's meals
           </p>
         </div>
@@ -126,7 +126,7 @@ export function NutritionHub({ onQuestComplete }: { onQuestComplete?: () => void
       </div>
 
       {/* Macro cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         <MacroCard label="Calories" icon={<Flame className="w-5 h-5 text-danger" />}   current={Math.round(totals.calories)} goal={GOALS.calories} unit="kcal" color="danger" />
         <MacroCard label="Protein"  icon={<Dumbbell className="w-5 h-5 text-success" />} current={Math.round(totals.protein)}  goal={GOALS.protein}  unit="g"    color="success" />
         <MacroCard label="Carbs"    icon={<Wheat className="w-5 h-5 text-gold" />}      current={Math.round(totals.carbs)}    goal={GOALS.carbs}    unit="g"    color="gold" />
